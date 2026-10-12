@@ -3,7 +3,7 @@ import vdDoramas from '../assets/img/vd-doramas.webp'
 import vdDetalhe from '../assets/img/vd-detalhe.webp'
 import vdMobileHero from '../assets/img/vd-mobile-hero.webp'
 import vdMobileDetalhe from '../assets/img/vd-mobile-detalhe.webp'
-import ghBlog from '../assets/img/gh-blog.webp'
+import legend from '../assets/img/legend.webp'
 
 export interface ProductShot {
   id: string
@@ -152,7 +152,7 @@ export const vuedrama = {
 export interface SideProject {
   id: string
   name: string
-  kind: 'Profissional' | 'Estudo público'
+  kind: 'Profissional' | 'Projeto pessoal'
   summary: string
   contribution: string
   stack: string[]
@@ -194,36 +194,23 @@ export const sideProjects: SideProject[] = [
     note: 'Produto interno, sem acesso público.',
   },
   {
-    id: 'github-blog',
-    name: 'GitHub Blog',
-    kind: 'Estudo público',
+    id: 'my-legend-portfolio',
+    name: 'My Legend Portfolio',
+    kind: 'Projeto pessoal',
     summary:
-      'Blog que transforma as issues de um repositório do GitHub em posts, com perfil, busca e página de leitura. Desafio da Rocketseat.',
+      'Meu portfólio anterior, que recria o cliente do League of Legends: cabeçalho, tela inicial, notícias, árvore de habilidades, formações e projetos, tudo com elementos visuais do jogo.',
     contribution:
-      'Consumo da API do GitHub com Axios, roteamento, formulário validado com React Hook Form e Zod, e estilização com Styled Components.',
-    stack: ['React', 'Vite', 'TypeScript', 'React Hook Form', 'Zod', 'Styled Components'],
+      'Concepção e desenvolvimento completos, com layout responsivo. A lista de seguidores do GitHub é carregada da API do GitHub e os certificados podem ser filtrados por status.',
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     image: {
-      src: ghBlog,
-      width: 1280,
-      height: 800,
-      alt: 'Captura do GitHub Blog: cabeçalho com perfil e lista de publicações geradas a partir de issues.',
+      src: legend,
+      width: 1150,
+      height: 900,
+      alt: 'Captura do My Legend Portfolio: tela inicial inspirada no cliente do League of Legends, com ilustração de personagem, título de boas-vindas e menu superior.',
     },
     links: [
-      { label: 'Ver online', href: 'https://github-blog-desafio-react.vercel.app/' },
-      { label: 'Código', href: 'https://github.com/tiago-forward/github-blog-desafio-react' },
-    ],
-  },
-  {
-    id: 'dt-money',
-    name: 'DT Money',
-    kind: 'Estudo público',
-    summary:
-      'Controle de transações financeiras feito no curso de ReactJS da Rocketseat, com foco em consumo de API e performance.',
-    contribution:
-      'Axios contra uma API local, compartilhamento de contexto com use-context-selector e medição com o Profiler do React usando useCallback, memo e useMemo.',
-    stack: ['React', 'TypeScript', 'Styled Components', 'Radix UI', 'Axios'],
-    links: [
-      { label: 'Código', href: 'https://github.com/tiago-forward/dt-money-react-rocketseat' },
+      { label: 'Ver online', href: 'https://my-legend-portfolio-snowy.vercel.app/' },
+      { label: 'Código', href: 'https://github.com/tiago-forward/my-legend-portfolio' },
     ],
   },
 ]

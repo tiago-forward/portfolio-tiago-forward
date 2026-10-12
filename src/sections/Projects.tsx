@@ -23,8 +23,8 @@ export function Projects() {
           <div className={styles.othersHead}>
             <h3 className={styles.othersTitle}>Outros projetos</h3>
             <p>
-              Dois trabalhos profissionais e dois projetos de estudo públicos. O código dos
-              primeiros é privado.
+              Dois trabalhos profissionais e um projeto pessoal público. O código dos primeiros é
+              privado.
             </p>
           </div>
         </Reveal>

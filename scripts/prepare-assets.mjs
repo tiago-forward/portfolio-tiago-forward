@@ -38,6 +38,13 @@ for (const [name, width] of Object.entries(shots)) {
     .toFile(`${OUT}/${name}.webp`)
 }
 
+// Portfólio pessoal (tema League of Legends): recorta a barra lateral com avatares de terceiros.
+await sharp(`${RAW}/legend.png`)
+  .extract({ left: 0, top: 0, width: 1150, height: 900 })
+  .resize({ width: 1150 })
+  .webp({ quality: 84 })
+  .toFile(`${OUT}/legend.webp`)
+
 // ---------- Assinatura (monograma) vetorizada ----------
 // Recorte do banner original; ampliado e vetorizado para escalar sem pixelar.
 const crop = await sharp(`${RAW}/banner.jpg`)
