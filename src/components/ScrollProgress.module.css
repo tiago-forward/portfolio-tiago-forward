@@ -1,0 +1,11 @@
+.bar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cobalt-strong), var(--cobalt) 70%, var(--paper));
+  transform-origin: left;
+  transform: scaleX(var(--progress, 0));
+  pointer-events: none;
+  will-change: transform;
+}

@@ -1,0 +1,271 @@
+.section {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+  border-top: 1px solid var(--line);
+}
+
+.head {
+  /* o título da seção precede o case em tela cheia */
+  margin-bottom: 0;
+}
+
+.others {
+  margin-top: clamp(4rem, 9vw, 7rem);
+}
+
+.othersHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem 3rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.othersHead p {
+  color: var(--paper-dim);
+  max-width: 44ch;
+}
+
+.othersTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-3);
+  letter-spacing: -0.02em;
+}
+
+.list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.list > li {
+  border-bottom: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr) minmax(0, 0.7fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  padding-block: clamp(1.75rem, 4vw, 2.75rem);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.meta {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+}
+
+.idx {
+  color: var(--paper-faint);
+}
+
+.kind {
+  color: var(--paper-dim);
+}
+
+.kind[data-kind='Profissional'] {
+  color: var(--sand);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-2);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.summary {
+  margin-top: 0.75rem;
+  max-width: 56ch;
+}
+
+.contribution {
+  margin-top: 0.75rem;
+  max-width: 56ch;
+  color: var(--paper-dim);
+}
+
+.contribution strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+}
+
+.tags li {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--paper-dim);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.links a,
+.more a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--cobalt);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease);
+}
+
+.links a:hover,
+.more a:hover {
+  border-bottom-color: var(--cobalt);
+}
+
+.note {
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--paper-faint);
+}
+
+.shot {
+  align-self: start;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-m);
+  background: var(--ink-1);
+}
+
+.shot img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.7s var(--ease);
+}
+
+.row:hover .shot img {
+  transform: scale(1.04);
+}
+
+.more {
+  margin-top: 2rem;
+  color: var(--paper-dim);
+}
+
+@media (max-width: 1000px) {
+  .row {
+    grid-template-columns: 7rem minmax(0, 1fr);
+  }
+
+  .shot {
+    grid-column: 2;
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .othersHead {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .meta {
+    grid-auto-flow: column;
+    justify-content: start;
+    gap: 1rem;
+  }
+
+  .shot {
+    grid-column: 1;
+  }
+}
+
+/* Hover: a linha inteira responde. */
+.row {
+  position: relative;
+  isolation: isolate;
+}
+
+.row::after {
+  content: '';
+  position: absolute;
+  inset: 0 calc(var(--gutter) * -0.5);
+  z-index: -1;
+  background: linear-gradient(90deg, rgb(243 239 232 / 0.04), transparent 75%);
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease);
+  pointer-events: none;
+}
+
+.row:hover::after {
+  opacity: 1;
+}
+
+.name {
+  transition:
+    color var(--dur) var(--ease),
+    translate var(--dur-slow) var(--ease);
+}
+
+.row:hover .name {
+  color: var(--cobalt);
+  translate: 8px 0;
+}
+
+.idx {
+  transition: color var(--dur) var(--ease);
+}
+
+.row:hover .idx {
+  color: var(--cobalt);
+}
+
+.shot {
+  transition:
+    border-color var(--dur-slow) var(--ease),
+    translate var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+.row:hover .shot {
+  border-color: var(--cobalt);
+  translate: 0 -4px;
+  box-shadow: 0 24px 50px -24px rgb(0 0 0 / 0.8);
+}
+
+.tags li {
+  transition:
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.tags li:hover {
+  border-color: var(--cobalt);
+  color: var(--paper);
+}
+
+.links a svg,
+.more a svg {
+  transition: translate var(--dur) var(--ease);
+}
+
+.links a:hover svg,
+.more a:hover svg {
+  translate: 2px -2px;
+}

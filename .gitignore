@@ -1,0 +1,10 @@
+node_modules
+dist
+scratch
+*.local
+.DS_Store
+src/assets/raw/cv.pdf
+src/assets/raw/vd-perfil.png
+src/assets/raw/vd-watchlist.png
+src/assets/raw/vd-home.png
+src/assets/raw/vd-explorar.png

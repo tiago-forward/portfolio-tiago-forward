@@ -1,0 +1,51 @@
+/*
+  Tokens de design. A paleta nasce da marca e do retrato:
+  - ink: o preto do banner
+  - paper: o branco quente da assinatura
+  - cobalt: o azul-marinho da camisa, clareado para funcionar sobre o escuro
+  - sand: o bege da calça
+*/
+:root {
+  --ink-0: #07080b;
+  --ink-1: #0c0e13;
+  --ink-2: #12151c;
+  --ink-3: #1a1e28;
+
+  --paper: #f3efe8;
+  --paper-dim: #a9afbd;
+  --paper-faint: #6c7384;
+
+  --cobalt: #6f95ff;
+  --cobalt-strong: #4a73e8;
+  --navy: #14295f;
+  --sand: #cdb894;
+
+  --line: rgb(243 239 232 / 0.12);
+  --line-strong: rgb(243 239 232 / 0.24);
+
+  --font-display: 'Syne Variable', 'Syne', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans Variable', 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono:
+    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.875rem);
+  --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --step-1: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --step-2: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --step-3: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --step-4: clamp(2.25rem, 1.6rem + 3vw, 4rem);
+  --step-5: clamp(2.75rem, 1.5rem + 6vw, 7rem);
+
+  --gutter: clamp(1.25rem, 5vw, 3.5rem);
+  --maxw: 1240px;
+  --section-y: clamp(5rem, 11vw, 9.5rem);
+
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --radius-l: 18px;
+
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --dur: 300ms;
+  --dur-slow: 500ms;
+  --header-h: 68px;
+}

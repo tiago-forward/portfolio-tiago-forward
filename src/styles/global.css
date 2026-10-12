@@ -1,0 +1,234 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ink-0);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition:
+    color var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+}
+
+button {
+  transition:
+    color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--cobalt);
+  color: var(--ink-0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+  transition: outline-offset 150ms var(--ease);
+  border-radius: var(--radius-s);
+}
+
+[tabindex='-1']:focus {
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--maxw) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.7rem 1rem;
+  background: var(--paper);
+  color: var(--ink-0);
+  font-weight: 600;
+  border-radius: var(--radius-s);
+  transition: top var(--dur) var(--ease);
+}
+.skip-link:focus {
+  top: 1rem;
+  outline-offset: 2px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Entrada suave ao rolar: só quando há JS e o usuário não pediu menos movimento. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.8s var(--ease),
+      transform 0.8s var(--ease);
+    transition-delay: calc(var(--reveal-delay, 0) * 1ms);
+  }
+  .js .reveal[data-in='true'] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+  "Reduzir movimento": sem deslocamentos de entrada, parallax nem rolagem animada, mas as
+  respostas de hover (cor, borda, sombra, pequenos deslocamentos) e as entradas em fade continuam suaves.
+*/
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .reveal {
+    opacity: 0;
+    transition: opacity 0.7s var(--ease);
+    transition-delay: calc(var(--reveal-delay, 0) * 1ms);
+  }
+
+  .js .reveal[data-in='true'] {
+    opacity: 1;
+  }
+
+  .js .stagger:not([data-in='true']) > * {
+    opacity: 0;
+  }
+
+  .js .stagger[data-in='true'] > * {
+    animation: fade-in 0.6s var(--ease) backwards;
+    animation-delay: calc(var(--n, 0) * 40ms);
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+@media print {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Cascata: filhos de .stagger entram um após o outro quando o pai fica visível. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .stagger:not([data-in='true']) > * {
+    opacity: 0;
+  }
+
+  .js .stagger[data-in='true'] > * {
+    animation: pop-in 0.75s var(--ease) backwards;
+    animation-delay: calc(var(--n, 0) * 55ms + var(--reveal-delay, 0) * 1ms);
+  }
+
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      translate: 0 16px;
+      filter: blur(4px);
+    }
+  }
+}
+
+.stagger > :nth-child(2) {
+  --n: 1;
+}
+.stagger > :nth-child(3) {
+  --n: 2;
+}
+.stagger > :nth-child(4) {
+  --n: 3;
+}
+.stagger > :nth-child(5) {
+  --n: 4;
+}
+.stagger > :nth-child(6) {
+  --n: 5;
+}
+.stagger > :nth-child(7) {
+  --n: 6;
+}
+.stagger > :nth-child(8) {
+  --n: 7;
+}
+.stagger > :nth-child(n + 9) {
+  --n: 8;
+}

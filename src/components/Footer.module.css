@@ -1,0 +1,97 @@
+.footer {
+  border-top: 1px solid var(--line);
+  padding-block: 2.5rem;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.mark {
+  width: 40px;
+  height: 40px;
+  color: var(--paper);
+}
+
+.brand span {
+  display: grid;
+}
+
+.brand strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.brand small {
+  color: var(--paper-faint);
+  font-size: 0.7rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.9rem;
+  color: var(--paper-dim);
+  transition: color var(--dur) var(--ease);
+}
+
+.links a:hover {
+  color: var(--paper);
+}
+
+.credit {
+  flex-basis: 100%;
+  color: var(--paper-faint);
+  font-size: 0.72rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.mark {
+  transition:
+    rotate 0.7s var(--ease),
+    scale var(--dur-slow) var(--ease);
+}
+
+.brand:hover .mark {
+  rotate: -8deg;
+  scale: 1.1;
+}
+
+.links a {
+  position: relative;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.55rem;
+  height: 1px;
+  background: var(--cobalt);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.links a:hover::after {
+  transform: scaleX(1);
+}

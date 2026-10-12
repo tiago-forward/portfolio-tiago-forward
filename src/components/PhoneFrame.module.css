@@ -1,0 +1,33 @@
+.phone {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 34px;
+  background: var(--ink-2);
+  box-shadow: 0 30px 60px -24px rgb(0 0 0 / 0.75);
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+.phone:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+}
+
+.screen {
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--ink-0);
+  aspect-ratio: 390 / 844;
+}
+
+.screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.phone:hover {
+  box-shadow: 0 40px 70px -24px rgb(236 79 151 / 0.25);
+}

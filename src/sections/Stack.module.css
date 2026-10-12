@@ -1,0 +1,138 @@
+.section {
+  padding-block: var(--section-y);
+  border-top: 1px solid var(--line);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--paper-dim);
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.dot {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot[data-origin='prod'] {
+  background: var(--cobalt);
+}
+
+.dot[data-origin='vuedrama'] {
+  background: var(--sand);
+}
+
+.dot[data-origin='curso'] {
+  border: 1.5px solid var(--paper-faint);
+}
+
+.groups {
+  border-top: 1px solid var(--line-strong);
+}
+
+.group {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 1rem clamp(2rem, 6vw, 5rem);
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.groupHead h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-2);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.groupHead p {
+  margin-top: 0.4rem;
+  color: var(--paper-dim);
+  font-size: 0.95rem;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.6rem 0.6rem;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem 0.45rem 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-weight: 500;
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.item:hover {
+  border-color: var(--paper-dim);
+  background: var(--ink-2);
+  transform: translateY(-2px);
+}
+
+.principles {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.principles h3 {
+  color: var(--paper-faint);
+  font-weight: 400;
+}
+
+.principles p {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--step-2);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  max-width: 34ch;
+  text-wrap: balance;
+}
+
+@media (max-width: 800px) {
+  .group {
+    grid-template-columns: 1fr;
+  }
+}
+
+.group {
+  transition: background-color var(--dur-slow) var(--ease);
+}
+
+.groupHead h3 {
+  transition:
+    color var(--dur) var(--ease),
+    translate var(--dur-slow) var(--ease);
+}
+
+.group:hover .groupHead h3 {
+  color: var(--cobalt);
+  translate: 6px 0;
+}
+
+.item:active {
+  transform: scale(0.96);
+}

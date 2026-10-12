@@ -1,0 +1,150 @@
+.section {
+  padding-block: var(--section-y);
+  border-top: 1px solid var(--line);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: start;
+}
+
+.text {
+  display: grid;
+  gap: 1.5rem;
+  font-size: var(--step-1);
+  line-height: 1.65;
+  max-width: 60ch;
+}
+
+.text p:first-child {
+  color: var(--paper);
+}
+
+.text p:not(:first-child) {
+  color: var(--paper-dim);
+}
+
+.facts dl {
+  border-top: 1px solid var(--line-strong);
+}
+
+.facts dl > div {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.facts dt {
+  color: var(--paper-faint);
+  padding-top: 0.2rem;
+}
+
+.facts dd {
+  font-weight: 500;
+}
+
+.sub {
+  display: block;
+  margin-top: 0.15rem;
+  font-weight: 400;
+  color: var(--paper-dim);
+  font-size: 0.92rem;
+}
+
+.details {
+  margin-top: 1.5rem;
+}
+
+.details summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--cobalt);
+  min-height: 44px;
+}
+
+.details summary::-webkit-details-marker {
+  display: none;
+}
+
+.details summary::before {
+  content: '+';
+  display: inline-grid;
+  place-items: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.details[open] summary::before {
+  content: '–';
+}
+
+.details ul {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.5rem 0 0 1.9rem;
+  color: var(--paper-dim);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .facts dl > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+.facts dl > div {
+  transition:
+    padding var(--dur-slow) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.facts dl > div:hover {
+  padding-left: 0.6rem;
+  border-bottom-color: var(--cobalt);
+}
+
+.facts dt {
+  transition: color var(--dur) var(--ease);
+}
+
+.facts dl > div:hover dt {
+  color: var(--cobalt);
+}
+
+.details summary::before {
+  transition:
+    rotate var(--dur-slow) var(--ease),
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.details summary:hover::before {
+  background: var(--cobalt);
+  color: var(--ink-0);
+}
+
+.details[open] summary::before {
+  rotate: 180deg;
+}
+
+.details ul li {
+  animation: pop-in 0.5s var(--ease) backwards;
+}

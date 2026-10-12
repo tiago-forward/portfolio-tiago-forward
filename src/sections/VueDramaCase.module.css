@@ -1,0 +1,378 @@
+/* O case usa a rosa do VueDrama só como acento, sobre o azul-preto do portfólio. */
+.case {
+  --vd-pink: #ec4f97;
+  --vd-pink-soft: #f7a8cc;
+
+  position: relative;
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+  background:
+    radial-gradient(50% 40% at 100% 0%, rgb(236 79 151 / 0.13), transparent 70%),
+    radial-gradient(40% 30% at 0% 55%, rgb(20 41 95 / 0.35), transparent 70%), #060811;
+  border-block: 1px solid var(--line);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(3rem, 7vw, 5.5rem);
+}
+
+.topline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  color: var(--paper-dim);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--paper);
+}
+
+.live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3ddc97;
+  box-shadow: 0 0 0 4px rgb(61 220 151 / 0.18);
+}
+
+.title {
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 14.6vw, 12rem);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+.title span {
+  color: var(--vd-pink);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: start;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--step-3);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  max-width: 16ch;
+}
+
+.clarify {
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--vd-pink);
+  font-size: var(--step-1);
+  color: var(--paper-dim);
+  max-width: 46ch;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.primary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.3rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition:
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.primary {
+  background: var(--vd-pink);
+  color: #1a0710;
+}
+
+.primary:hover {
+  background: var(--vd-pink-soft);
+  transform: translateY(-2px);
+}
+
+.ghost {
+  border: 1px solid var(--line-strong);
+}
+
+.ghost:hover {
+  border-color: var(--paper);
+  background: rgb(243 239 232 / 0.06);
+}
+
+/* Vitrine: navegador + dois celulares em proporções diferentes. */
+.stage {
+  display: grid;
+  gap: 1rem;
+}
+
+.showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(250px, 29%, 390px);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: end;
+}
+
+.phones {
+  display: flex;
+  align-items: flex-end;
+  padding-top: 2.5rem;
+}
+
+.phoneA,
+.phoneB {
+  flex: 0 0 57%;
+}
+
+.phoneA {
+  position: relative;
+  z-index: 1;
+  translate: 0 -2.75rem;
+}
+
+.phoneB {
+  margin-left: -14%;
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--paper-faint);
+}
+
+.brief {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.label {
+  color: var(--vd-pink-soft);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line-strong);
+  font-weight: 400;
+}
+
+.facts {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.facts dt {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.facts dd {
+  color: var(--paper-dim);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem clamp(1.5rem, 4vw, 3rem);
+}
+
+.features li {
+  display: grid;
+  grid-template-columns: 2.1rem 1fr;
+  gap: 0.5rem;
+}
+
+.num {
+  color: var(--paper-faint);
+  padding-top: 0.15rem;
+}
+
+.features h5,
+.decisions h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.features p {
+  margin-top: 0.3rem;
+  color: var(--paper-dim);
+  font-size: 0.95rem;
+}
+
+.decisions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+.decisions li {
+  padding-block: 1.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.decisions p {
+  margin-top: 0.5rem;
+  color: var(--paper-dim);
+  max-width: 52ch;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stack li {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  transition:
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.stack li:hover {
+  border-color: var(--vd-pink);
+  color: var(--vd-pink-soft);
+}
+
+@media (max-width: 960px) {
+  .intro,
+  .brief {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .phones {
+    max-width: 24rem;
+    padding-top: 0;
+  }
+
+  .phoneA {
+    translate: 0 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .features,
+  .decisions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Spotlight rosa que segue o mouse dentro do case. */
+.case::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    520px circle at var(--px, 80%) var(--py, 20%),
+    rgb(236 79 151 / 0.09),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+}
+
+/* Profundidade: os celulares deslocam mais que o navegador quando o mouse se move. */
+.phones {
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.title {
+  transition: letter-spacing 0.8s var(--ease);
+}
+
+.primary svg {
+  transition: translate var(--dur) var(--ease);
+}
+
+.primary:hover svg {
+  translate: 3px -3px;
+}
+
+.primary:active,
+.ghost:active {
+  transform: scale(0.97);
+}
+
+.features li,
+.decisions li {
+  transition:
+    border-color var(--dur-slow) var(--ease),
+    translate var(--dur-slow) var(--ease);
+}
+
+.features li:hover {
+  translate: 6px 0;
+}
+
+.features li:hover .num {
+  color: var(--vd-pink);
+}
+
+.features h5,
+.decisions h5 {
+  transition: color var(--dur) var(--ease);
+}
+
+.features li:hover h5,
+.decisions li:hover h5 {
+  color: var(--vd-pink-soft);
+}
+
+.num {
+  transition: color var(--dur) var(--ease);
+}
+
+.decisions li:hover {
+  border-bottom-color: var(--vd-pink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .case:hover::before {
+    opacity: 1;
+  }
+
+  .phones {
+    transform: translate3d(calc(var(--mx, 0) * -12px), calc(var(--my, 0) * -8px), 0);
+  }
+
+  .showcase > :first-child {
+    transform: translate3d(calc(var(--mx, 0) * 4px), calc(var(--my, 0) * 3px), 0);
+    transition: transform var(--dur-slow) var(--ease);
+  }
+}
